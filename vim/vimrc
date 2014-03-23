@@ -1,0 +1,15 @@
+
+" syntax highlight
+syntax on
+
+" show line number
+set nu
+
+" syntax setting
+set background=dark
+hi PreProc ctermfg=magenta cterm=bold
+hi Constant ctermfg=red cterm=bold
+
+" open/close search highlight
+"	from http://blog.eddie.com.tw/2005/02/26/highlight-in-vi/
+map <F8> :set hls!<BAR>set hls?<CR>
