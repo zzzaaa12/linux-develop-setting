@@ -6,8 +6,13 @@ PS1=' \[\033[01;32m\]\W\[\033[00m\]\$ '
 
 # alias for commands with color
 alias diff='colordiff'
-alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=CVS'
+alias dirs='dirs -v'
+alias m='jobs'
 alias findx='find . -name'
+alias ll='ls -al --color=always'
+alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=CVS'
+alias grephis='history | grep'
+alias tmux='TERM=xterm-256color tmux -2'
 
 # color for ls command
 LS_COLORS=\
@@ -52,16 +57,4 @@ alias 17='fg 17'
 alias 18='fg 18'
 alias 19='fg 19'
 alias 19='fg 19'
-
-# alias for cd commands
-alias cd1='cd ..'
-alias cd2='cd ../../'
-alias cd3='cd ../../../'
-alias cd4='cd ../../../../'
-alias cd5='cd ../../../../../'
-alias cd6='cd ../../../../../../'
-alias cd7='cd ../../../../../../../'
-alias cd8='cd ../../../../../../../../'
-alias cd9='cd ../../../../../../../../../'
-alias cd10='cd ../../../../../../../../../../'
 
