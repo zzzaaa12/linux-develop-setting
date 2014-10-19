@@ -1,0 +1,14 @@
+[user]
+	email = zzzaaa12@gmail.com
+	name = zzzaaa12
+[color]
+	ui = true
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+[merge]
+	tool = vimdiff
