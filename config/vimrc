@@ -53,7 +53,10 @@ set background=dark
 "  source /etc/vim/vimrc.local
 "endif
 
-set cmdheight=2
+"set cmdheight=2
+"---------------------------- vim-airline ----------------------------
+set laststatus=2
+
 "----------------------------- text color ----------------------------
 set t_Co=256
 hi PreProc ctermfg=013
@@ -90,11 +93,12 @@ call vundle#rc()
 
 " original repos on github
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
 Bundle 'snipMate'
-Bundle 'wesleyche/Trinity'
+Bundle 'bling/vim-airline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/taglist.vim'
 Bundle 'wesleyche/SrcExpl'
-Bundle 'ervandew/supertab'
+Bundle 'wesleyche/Trinity'
 
 "----------------------------- Trinity -------------------------------
 " Open and close all the three plugins on the same time
