@@ -1,6 +1,6 @@
 # bash setting
-echo "source ~/.bash_setting" >> ~/.bashrc
 cp setting/bash_setting.sh ~/.bash_setting.sh
+echo "source ~/.bash_setting.sh" >> ~/.bashrc
 
 # colordiff setting
 cp setting/colordiffrc ~/.colordiffrc

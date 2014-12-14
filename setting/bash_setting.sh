@@ -1,5 +1,5 @@
 # PS1 setting with color 
-PS1=' \[\033[01;32m\]\W\[\033[00m\]\$ '
+PS1=' \[\033[01;32m\]\W\[\033[00m\] \$ '
 
 # PS1 setting without color 
 ##PS1=' \W\$ '
