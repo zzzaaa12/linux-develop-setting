@@ -6,7 +6,7 @@ echo "source ~/.bash_setting.sh" >> ~/.bashrc
 cp setting/colordiffrc ~/.colordiffrc
 
 # git setting
-cp setting/gitconfig ~/.gitsetting
+cp setting/gitconfig ~/.gitconfig
 
 # svn setting
 if [ ! -e ~/.subversion ]; then
