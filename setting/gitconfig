@@ -10,5 +10,6 @@
 	ci = commit
 	st = status
 	br = branch
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
 [merge]
 	tool = vimdiff
