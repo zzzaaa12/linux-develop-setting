@@ -53,10 +53,6 @@ set background=dark
 "  source /etc/vim/vimrc.local
 "endif
 
-"set cmdheight=2
-"---------------------------- vim-airline ----------------------------
-set laststatus=2
-
 "----------------------------- text color ----------------------------
 set t_Co=256
 hi PreProc ctermfg=013
@@ -77,7 +73,6 @@ hi WarningMsg ctermfg=15 ctermbg=1
 	nnoremap <Leader>w :w<CR>	" save file
 
 "------------------------------ Vundle -------------------------------
-" from http://blog.chh.tw/posts/vim-vundle/
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -91,16 +86,22 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" original repos on github
+"Bundle 'Townk/vim-autoclose'
 Bundle 'gmarik/vundle'
-Bundle 'snipMate'
-Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'wesleyche/SrcExpl'
+Bundle 'snipMate'
+Bundle 'pangloss/vim-javascript'
 Bundle 'wesleyche/Trinity'
+Bundle 'wesleyche/SrcExpl'
+Bundle 'vim-scripts/Conque-Shell'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'Shougo/neocomplcache.vim'
+Plugin 'altercation/vim-colors-solarized'
+" Plugin 'wesQ3/wombat.vim'
 
-"----------------------------- Trinity -------------------------------
+"----------------------------- Trinity ------------------------------
+"nnoremap <silent> <F8> :TlistToggle<CR>
 " Open and close all the three plugins on the same time
 nmap <F8>  :TrinityToggleAll<CR>
 
@@ -112,3 +113,24 @@ nmap <F10> :TrinityToggleTagList<CR>
 
 " Open and close the NERD Tree separately
 nmap <F11> :TrinityToggleNERDTree<CR>
+
+"------------------------------ ctags -------------------------------
+nmap ] <C-]>
+nmap [ <C-t>
+set tag=tags
+
+"--------------------------- vim-powerline ---------------------------
+"set cmdheight=2
+set laststatus=2
+
+"---------------------------- tab setting ----------------------------
+" ts=tabstop  sw=shiftwidth  et=expandtab  noet=noexpandtab
+" softtabstop
+autocmd Filetype cpp setlocal ts=8 sw=8 noexpandtab
+autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
+autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
+
+"----------------------------- neocomplcache ----------------------------
+let g:NeoComplCache_DisableAutoComplete=1
+highlight Pmenu ctermfg=15 ctermbg=4
+highlight PmenuSel ctermfg=0 ctermbg=3
