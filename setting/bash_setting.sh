@@ -58,3 +58,5 @@ alias 18='fg 18'
 alias 19='fg 19'
 alias 19='fg 19'
 
+# show tmux status after login
+tmux ls 2>/dev/null
