@@ -85,7 +85,6 @@ set laststatus=2
 " softtabstop
 autocmd Filetype cpp setlocal ts=8 sw=8 noexpandtab
 autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
-autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
 
 "--------------------------- neocomplcache ---------------------------
 let g:NeoComplCache_DisableAutoComplete=1
