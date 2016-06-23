@@ -18,6 +18,7 @@ hi LineNr ctermfg=248 ctermbg=233
 hi Type ctermfg=046
 hi Statement ctermfg=226
 hi WarningMsg ctermfg=15 ctermbg=1
+hi Comment ctermfg=13
 
 "------------------------------ hot key ------------------------------
 " form http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity
