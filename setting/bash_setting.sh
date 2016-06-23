@@ -13,6 +13,11 @@ alias ll='ls -al --color=always'
 alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=CVS --exclude-dir=.git --exclude=tags'
 alias grephis='history | grep'
 alias tmux='TERM=xterm-256color tmux -2'
+alias cr='clear
+
+function grepx() {
+	grep $1 * -r
+}
 
 # color for ls command
 LS_COLORS=\
