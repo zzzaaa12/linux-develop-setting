@@ -16,7 +16,13 @@ alias tmux='TERM=xterm-256color tmux -2'
 alias cr='clear'
 
 function grepx() {
-	grep $1 * -r
+	if [ "$1" == "" ]; then
+		echo "No item to grep!!!"
+	elif [ "$2" == "" ]; then
+		grep $1 * -r
+	else
+		grep $1 $2
+	fi
 }
 
 # color for ls command
