@@ -30,6 +30,12 @@ function echo_info() {
 	echo -e ${GREEN}$@${COLOR_END}
 }
 
+function goto_target() {
+	echo "last_path: $last_path" && \
+	cd $target_path && \
+	echo_info "change to: $target_path"
+}
+
 # make package/xxx/prepare V=s
 function makep() {
 	if [ "$(is_sdk_top)" = "no" -o "$1" = "" ]; then
@@ -107,7 +113,8 @@ function cdtop() {
 
 	if [ "$cd_path" != "" ]; then
 		if [ "$hide" != "1" ]; then
-			echo "last_path: $last_path" &&	cd $cd_path && echo_info "change to: $(pwd)"
+			target_path=$cd_path
+			goto_target
 		else
 			cd $cd_path
 		fi
@@ -141,5 +148,6 @@ function cdroot() {
 		return
 	fi
 
-	echo "last_path: $last_path" && echo_info "change to: $(pwd)/$rootfs_path" && cd $rootfs_path
+	target_path=$(pwd)/$rootfs_path
+	goto_target
 }
