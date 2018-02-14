@@ -2,6 +2,9 @@
 cp setting/bash_setting.sh ~/.bash_setting.sh
 echo "source ~/.bash_setting.sh" >> ~/.bashrc
 
+# openwrt dev setting
+cp setting/.bash_openwrt.sh ~/bash_openwrt.sh
+
 # colordiff setting
 cp setting/colordiffrc ~/.colordiffrc
 

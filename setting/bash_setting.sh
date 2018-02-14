@@ -6,13 +6,8 @@ PS1=' \[\033[01;32m\]\W\[\033[00m\] \$ '
 
 # alias for commands with color
 alias diff='colordiff'
-alias dirs='dirs -v'
-alias m='jobs'
 alias findx='find . -name'
 alias ll='ls -al --color=always'
-alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=CVS --exclude-dir=.git --exclude=tags'
-alias grephis='history | grep'
-alias tmux='TERM=xterm-256color tmux -2'
 alias cr='clear'
 
 function grepx() {
@@ -46,28 +41,58 @@ LS_COLORS=\
 *.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:\
 *.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:"
 
-# alias for jobs/fg command
-alias m='jobs'
-alias 1='fg 1'
-alias 2='fg 2'
-alias 3='fg 3'
-alias 4='fg 4'
-alias 5='fg 5'
-alias 6='fg 6'
-alias 7='fg 7'
-alias 8='fg 8'
-alias 9='fg 9'
-alias 10='fg 10'
-alias 11='fg 11'
-alias 12='fg 12'
-alias 13='fg 13'
-alias 14='fg 14'
-alias 15='fg 15'
-alias 16='fg 16'
-alias 17='fg 17'
-alias 18='fg 18'
-alias 19='fg 19'
-alias 19='fg 19'
 
+# ===== find =====
+alias findx='find . -name'
+alias fx='findx'
+function fls() {
+	fx $1 | xargs ls -al
+}
+
+
+# ===== jobs =====
+alias m='jobs'
+for i in $(seq 1 30)
+do
+	alias "$i"="fg $i"
+done
+
+
+# ===== grep =====
+alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=CVS --exclude-dir=.git --exclude=tags'
+alias grephis='history | grep'
+alias gx='grepx'
+function grepx() {
+        if [ "$1" = "" ]; then
+                echo "Nothing to grep!!!"
+        elif [ "$2" = "" ]; then
+                grep $1 * -rn
+        elif [ "$3" = "" ]; then
+                grep $1 $2
+        else
+                grep $@
+        fi
+}
+
+
+# ====== git ======
+alias gitaddmodified='git st | grep modified | sed "s/.*modified:   //g" | xargs git add ; git st'
+alias gst='git st'
+alias gitrenew='git stash && git pull --rebase && git stash pop'
+alias g='git'
+alias gbr='git branch -a'
+alias gdiff='git diff'
+alias gdiff2='git diff --staged'
+alias glog='git log'
+alias gshow='git show'
+alias gci='git commit'
+alias gremote='git remote -v'
+alias gpush='git push'
+
+
+# ====== tumx ======
+alias tmux='TERM=xterm-256color tmux -2'
 # show tmux status after login
 tmux ls 2>/dev/null
+
+source ~/.bash_openwrt.sh
