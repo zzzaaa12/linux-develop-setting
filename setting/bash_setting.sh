@@ -10,16 +10,6 @@ alias findx='find . -name'
 alias ll='ls -al --color=always'
 alias cr='clear'
 
-function grepx() {
-	if [ "$1" == "" ]; then
-		echo "No item to grep!!!"
-	elif [ "$2" == "" ]; then
-		grep $1 * -r
-	else
-		grep $1 $2
-	fi
-}
-
 # color for ls command
 LS_COLORS=\
 "rs=0:di=01;36:ln=02;33:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;\
@@ -52,6 +42,7 @@ function fls() {
 
 # ===== jobs =====
 alias m='jobs'
+alias f='fg'
 for i in $(seq 1 30)
 do
 	alias "$i"="fg $i"

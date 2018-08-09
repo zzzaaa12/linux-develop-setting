@@ -22,3 +22,6 @@ cp setting/tmux.conf ~/.tmux.conf
 
 # vimrc
 cp setting/vimrc ~/.vimrc
+
+# dircolors (LS_COLORS)
+cp setting/dircolors ~/.dircolors
