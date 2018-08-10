@@ -1,6 +1,8 @@
 # bash setting
 cp setting/bash_setting.sh ~/.bash_setting.sh
-echo "source ~/.bash_setting.sh" >> ~/.bashrc
+if [ "$(grep bash_setting ~/.bashrc)" = "" ]; then
+	echo "source ~/.bash_setting.sh" >> ~/.bashrc
+fi
 
 # openwrt dev setting
 cp setting/bash_openwrt.sh ~/.bash_openwrt.sh
@@ -25,3 +27,6 @@ cp setting/vimrc ~/.vimrc
 
 # dircolors (LS_COLORS)
 cp setting/dircolors ~/.dircolors
+
+# tigrc
+cp setting/tigrc ~/.tigrc
