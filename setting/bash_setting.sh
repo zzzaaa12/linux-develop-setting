@@ -8,7 +8,9 @@ PS1=' \[\033[01;32m\]\W\[\033[00m\] \$ '
 alias diff='colordiff'
 alias findx='find . -name'
 alias ll='ls -al --color=always'
+alias llh='ll -h'
 alias cr='clear'
+alias x='xargs'
 
 # color for ls command
 LS_COLORS=\

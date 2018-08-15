@@ -1,7 +1,14 @@
+" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
+" the call to :runtime you can find below.  If you wish to change any of those
+" settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
+" will be overwritten everytime an upgrade of the vim packages is performed.
+" It is recommended to make changes after sourcing debian.vim since it alters
+" the value of the 'compatible' option.
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
+
 
 "--------------------------- color setting ---------------------------
 
@@ -22,15 +29,6 @@ hi Comment ctermfg=13
 hi DiffChange ctermbg=8
 hi DiffText ctermbg=12
 
-"------------------------------ hot key ------------------------------
-" form http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity
-
-" 1. leader key
-	let mapleader = "\<Space>"
-" 2. open new file
-	nnoremap <Leader>o :CtrlP<CR>
-" 3. save file
-	nnoremap <Leader>w :w<CR>	" save file
 
 "------------------------------ Vundle -------------------------------
 let iCanHazVundle=1
@@ -60,8 +58,21 @@ Bundle 'Shougo/neocomplcache.vim'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'wesQ3/wombat.vim'
 
-"----------------------------- Trinity ------------------------------
-"nnoremap <silent> <F8> :TlistToggle<CR>
+
+"---------------------------- Key Mapping ----------------------------
+" F5: line number
+:noremap <F5> :set nu! nu?<CR>
+:nnoremap <CR> :nonu<CR><CR>
+
+" F6: search highlight
+:noremap <F6> :set hlsearch! hlsearch?<CR>
+:nnoremap <CR> :nohlsearch<CR><CR>
+
+" F6: search ignore case
+:noremap <F7> :set ic! ic?<CR>
+:nnoremap <CR> :noic<CR><CR>
+
+" F8~F11: for Trinity
 " Open and close all the three plugins on the same time
 nmap <F8>  :TrinityToggleAll<CR>
 
@@ -74,14 +85,15 @@ nmap <F10> :TrinityToggleTagList<CR>
 " Open and close the NERD Tree separately
 nmap <F11> :TrinityToggleNERDTree<CR>
 
-"------------------------------ ctags -------------------------------
+" For ctags
 nmap ] <C-]>
 nmap [ <C-t>
-set tag=tags
+
 
 "--------------------------- vim-powerline ---------------------------
 "set cmdheight=2
 set laststatus=2
+
 
 "---------------------------- tab setting ----------------------------
 " ts=tabstop  sw=shiftwidth  et=expandtab  noet=noexpandtab
@@ -90,7 +102,13 @@ autocmd Filetype cpp setlocal ts=8 sw=8 noexpandtab
 autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
 
+
 "--------------------------- neocomplcache ---------------------------
 let g:NeoComplCache_DisableAutoComplete=1
 highlight Pmenu ctermfg=15 ctermbg=4
 highlight PmenuSel ctermfg=0 ctermbg=3
+
+
+"--------------------------- other setting ---------------------------
+set tag=tags
+set history=1000
