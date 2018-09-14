@@ -1,17 +1,31 @@
 [user]
 	email = zzzaaa12@gmail.com
 	name = zzzaaa12
+
 [color]
 	ui = true
+
 [core]
 	editor = vim
+
 [alias]
-	co = checkout
+	co = clone
 	ci = commit
 	st = status
 	br = branch
+	d = diff
+	ds = diff --staged
 	diff2 = diff --staged
+	nb = !git checkout -b
+	info = !git branch | grep \\* && git remote -v
+	renew = !git stash && git pull --rebase && git stash pop
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''	  %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	unstage = reset HEAD
+	delete_commit = reset HEAD^
+	alias = config --get-regexp ^alias\\.
+	edit = config --global -e
+
 [merge]
 	tool = vimdiff
 
