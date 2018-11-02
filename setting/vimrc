@@ -55,7 +55,8 @@ Bundle 'vim-scripts/Conque-Shell'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'Shougo/neocomplcache.vim'
-Plugin 'altercation/vim-colors-solarized'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-fugitive'
 " Plugin 'wesQ3/wombat.vim'
 
 
@@ -98,8 +99,9 @@ set laststatus=2
 "---------------------------- tab setting ----------------------------
 " ts=tabstop  sw=shiftwidth  et=expandtab  noet=noexpandtab
 " softtabstop
+set softtabstop=4 shiftwidth=4 expandtab
 autocmd Filetype cpp setlocal ts=8 sw=8 noexpandtab
-autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
+"autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
 
 
