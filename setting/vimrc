@@ -57,10 +57,26 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
-" Plugin 'wesQ3/wombat.vim'
+"Bundle 'wesQ3/wombat.vim'
 
+" tagbar
+Bundle 'majutsushi/tagbar'
+let g:tagbar_left = 1
 
 "---------------------------- Key Mapping ----------------------------
+
+" Show function name
+"   from: http://vim.wikia.com/wiki/Show_current_function_name_in_C_programs
+fun! ShowFuncName()
+  let lnum = line(".")
+  let col = col(".")
+  echohl ModeMsg
+  echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+  echohl None
+  call search("\\%" . lnum . "l" . "\\%" . col . "c")
+endfun
+map f :call ShowFuncName() <CR>
+
 " F5: line number
 :noremap <F5> :set nu! nu?<CR>
 :nnoremap <CR> :nonu<CR><CR>
@@ -73,18 +89,18 @@ Bundle 'tpope/vim-fugitive'
 :noremap <F7> :set ic! ic?<CR>
 :nnoremap <CR> :noic<CR><CR>
 
-" F8~F11: for Trinity
-" Open and close all the three plugins on the same time
-nmap <F8>  :TrinityToggleAll<CR>
-
 " Open and close the Source Explorer separately
 nmap <F9>  :TrinityToggleSourceExplorer<CR>
 
-" Open and close the Taglist separately
-nmap <F10> :TrinityToggleTagList<CR>
+" Open and close tagbar
+nmap <F10> :TagbarToggle<CR>
 
 " Open and close the NERD Tree separately
 nmap <F11> :TrinityToggleNERDTree<CR>
+
+" Git blame (vim-fugitive)
+:noremap <F12> :Gblame<CR>
+:nnoremap <CR> :Gblame<CR><CR>
 
 " For ctags
 nmap ] <C-]>
