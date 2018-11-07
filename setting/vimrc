@@ -78,16 +78,13 @@ endfun
 map f :call ShowFuncName() <CR>
 
 " F5: line number
-:noremap <F5> :set nu! nu?<CR>
-:nnoremap <CR> :nonu<CR><CR>
+nmap <F5> :set nu! nu?<CR>
 
 " F6: search highlight
-:noremap <F6> :set hlsearch! hlsearch?<CR>
-:nnoremap <CR> :nohlsearch<CR><CR>
+nmap <F6> :set hlsearch! hlsearch?<CR>
 
 " F6: search ignore case
-:noremap <F7> :set ic! ic?<CR>
-:nnoremap <CR> :noic<CR><CR>
+nmap <F7> :set ic! ic?<CR>
 
 " Open and close the Source Explorer separately
 nmap <F9>  :TrinityToggleSourceExplorer<CR>
@@ -99,8 +96,7 @@ nmap <F10> :TagbarToggle<CR>
 nmap <F11> :TrinityToggleNERDTree<CR>
 
 " Git blame (vim-fugitive)
-:noremap <F12> :Gblame<CR>
-:nnoremap <F12> :Gblame<CR><CR>
+nmap <F12> :Gblame<CR>
 
 " For ctags
 nmap ] <C-]>
