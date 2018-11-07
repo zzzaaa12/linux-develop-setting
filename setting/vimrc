@@ -100,7 +100,7 @@ nmap <F11> :TrinityToggleNERDTree<CR>
 
 " Git blame (vim-fugitive)
 :noremap <F12> :Gblame<CR>
-:nnoremap <CR> :Gblame<CR><CR>
+:nnoremap <F12> :Gblame<CR><CR>
 
 " For ctags
 nmap ] <C-]>
