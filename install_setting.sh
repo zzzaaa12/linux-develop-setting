@@ -30,3 +30,6 @@ cp setting/dircolors ~/.dircolors
 
 # tigrc
 cp setting/tigrc ~/.tigrc
+
+# apply setting
+source ~/.bash_setting.sh

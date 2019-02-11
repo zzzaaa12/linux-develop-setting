@@ -11,6 +11,7 @@ alias ll='ls -al --color=always'
 alias llh='ll -h'
 alias cr='clear'
 alias x='xargs'
+alias p='pwd'
 alias makec='colormake'
 
 # color for ls command
