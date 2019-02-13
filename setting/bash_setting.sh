@@ -82,7 +82,7 @@ function gxi() {
 }
 
 # ====== git ======
-alias gitaddmodified='git st | grep modified | sed "s/.*modified:   //g" | xargs git add ; git st'
+alias gitaddmodified='git st . | grep modified | sed "s/.*modified:   //g" | xargs git add ; git st'
 alias gst='git st'
 alias gitrenew='git stash && git pull --rebase && git stash pop'
 alias g='git'
