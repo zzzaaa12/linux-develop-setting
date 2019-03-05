@@ -17,6 +17,7 @@ libevent-dev \
 libncurses5-dev \
 libssl-dev \
 libtool \
+libxml2-utils \
 ocaml-findlib \
 pkg-config \
 sharutils \
