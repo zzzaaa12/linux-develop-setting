@@ -44,23 +44,15 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-"Bundle 'Townk/vim-autoclose'
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'snipMate'
 Bundle 'pangloss/vim-javascript'
 Bundle 'wesleyche/Trinity'
 Bundle 'wesleyche/SrcExpl'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'vim-airline/vim-airline'
 Bundle 'tpope/vim-fugitive'
-"Bundle 'wesQ3/wombat.vim'
-
-" tagbar
+Bundle 'aceofall/gtags.vim'
+Bundle 'morhetz/gruvbox'
 Bundle 'majutsushi/tagbar'
-let g:tagbar_left = 1
 
 "---------------------------- Key Mapping ----------------------------
 
@@ -76,25 +68,27 @@ fun! ShowFuncName()
 endfun
 map f :call ShowFuncName() <CR>
 
+
 " F5: line number
 nmap <F5> :set nu! nu?<CR>
 
 " F6: search highlight
 nmap <F6> :set hlsearch! hlsearch?<CR>
 
-" F6: search ignore case
+" F7: search ignore case
 nmap <F7> :set ic! ic?<CR>
 
-" Open and close the Source Explorer separately
-nmap <F9>  :TrinityToggleSourceExplorer<CR>
+" F8: Source Explorer
+nmap <F8>  :TrinityToggleSourceExplorer<CR>
 
-" Open and close tagbar
-nmap <F10> :TagbarToggle<CR>
+" F9/F10 tab setting
+nmap <F9>  :set ts=4 sw=4 expandtab<CR>
+nmap <F10> :set ts=8 sw=8 noexpandtab<CR>
 
-" Open and close the NERD Tree separately
-nmap <F11> :TrinityToggleNERDTree<CR>
+" F11 Tagbar
+nmap <F11> :TagbarToggle<CR>
 
-" Git blame (vim-fugitive)
+" F12 Git blame (vim-fugitive)
 nmap <F12> :Gblame<CR>
 
 " For ctags
@@ -130,3 +124,29 @@ highlight PmenuSel ctermfg=0 ctermbg=3
 "--------------------------- other setting ---------------------------
 set tag=tags
 set history=1000
+
+
+"------------------------------ gtags --------------------------------
+" from: http://ju.outofmemory.cn/entry/112383
+
+" cscope
+set cscopetag                  " 使用 cscope 作为 tags 命令
+set cscopeprg='gtags-cscope'   " 使用 gtags-cscope 代替 cscope
+
+" gtags
+let GtagsCscope_Auto_Load = 1
+let CtagsCscope_Auto_Map = 1
+let GtagsCscope_Quiet = 1
+
+
+"--------------------------------------------------
+" Fix backspace cannot work in last char
+" from: https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
+set backspace=indent,eol,start
+
+" vim-airline
+let g:airline#extensions#whitespace#enabled = 0
+
+" tagbar
+let g:tagbar_left = 1
+
