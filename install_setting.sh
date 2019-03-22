@@ -4,9 +4,6 @@ if [ "$(grep bash_setting ~/.bashrc)" = "" ]; then
 	echo "source ~/.bash_setting.sh" >> ~/.bashrc
 fi
 
-# openwrt dev setting
-cp setting/bash_openwrt.sh ~/.bash_openwrt.sh
-
 # colordiff setting
 cp setting/colordiffrc ~/.colordiffrc
 

@@ -41,7 +41,7 @@ alias makec='colormake'
 alias findx='find . -name'
 alias fx='findx'
 function fls() {
-	fx $1 | xargs ls -al
+	fx "$1" | xargs ls -al
 }
 
 
@@ -101,5 +101,3 @@ alias gpush='git push'
 alias tmux='TERM=xterm-256color tmux -2'
 # show tmux status after login
 tmux ls 2>/dev/null
-
-source ~/.bash_openwrt.sh
