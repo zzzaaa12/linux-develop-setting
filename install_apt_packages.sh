@@ -12,12 +12,14 @@ flex \
 gawk \
 gettext \
 git-core \
+htop \
 intltool \
 libevent-dev \
 libncurses5-dev \
 libssl-dev \
 libtool \
 libxml2-utils \
+minicom \
 ocaml-findlib \
 pkg-config \
 sharutils \
