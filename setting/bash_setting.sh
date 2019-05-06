@@ -101,3 +101,7 @@ alias gpush='git push'
 alias tmux='TERM=xterm-256color tmux -2'
 # show tmux status after login
 tmux ls 2>/dev/null
+
+if [ -f ~/.bash_openwrt.sh ]; then
+	source ~/.bash_openwrt.sh
+fi
