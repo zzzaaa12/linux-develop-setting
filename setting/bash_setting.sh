@@ -14,6 +14,9 @@ alias cr='clear'
 alias x='xargs'
 alias p='pwd'
 alias makec='colormake'
+alias c='ctags -R .'
+alias v='vim'
+
 
 # color for ls command
 #LS_COLORS=\
@@ -46,7 +49,8 @@ function fls() {
 
 
 # ===== jobs =====
-alias m='jobs'
+alias j='jobs'
+alias m='j'
 alias f='fg'
 for i in $(seq 1 30)
 do
@@ -84,12 +88,12 @@ function gxi() {
 
 # ====== git ======
 alias gitaddmodified='git st . | grep modified | sed "s/.*modified:   //g" | xargs git add ; git st'
-alias gst='git st'
+alias gs='git st'
 alias gitrenew='git stash && git pull --rebase && git stash pop'
 alias g='git'
 alias gbr='git branch -a'
-alias gdiff='git diff'
-alias gdiff2='git diff --staged'
+alias gd='git diff'
+alias gd2='git diff --staged'
 alias glog='git log'
 alias gshow='git show'
 alias gci='git commit'
@@ -102,6 +106,4 @@ alias tmux='TERM=xterm-256color tmux -2'
 # show tmux status after login
 tmux ls 2>/dev/null
 
-if [ -f ~/.bash_openwrt.sh ]; then
-	source ~/.bash_openwrt.sh
-fi
+source ~/.bash_openwrt.sh
