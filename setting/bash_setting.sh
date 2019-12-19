@@ -107,3 +107,5 @@ alias tmux='TERM=xterm-256color tmux -2'
 tmux ls 2>/dev/null
 
 source ~/.bash_openwrt.sh
+
+export TERM=xterm1;export TERMINFO=/usr/share/terminfo
