@@ -4,6 +4,7 @@ parse_git_branch() {
 }
 export PS1=" \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
 
+LANG=C
 
 # alias for commands with color
 alias diff='colordiff'
@@ -108,4 +109,5 @@ tmux ls 2>/dev/null
 
 source ~/.bash_openwrt.sh
 
-export TERM=xterm1;export TERMINFO=/usr/share/terminfo
+# Disable for realtek make menuconfig
+# export TERM=xterm1;export TERMINFO=/usr/share/terminfo
