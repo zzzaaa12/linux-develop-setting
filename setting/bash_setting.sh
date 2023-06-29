@@ -107,7 +107,9 @@ alias tmux='TERM=xterm-256color tmux -2'
 # show tmux status after login
 tmux ls 2>/dev/null
 
-source ~/.bash_openwrt.sh
+export PATH=$HOME/local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 
+source ~/.bash_openwrt.sh
 # Disable for realtek make menuconfig
 # export TERM=xterm1;export TERMINFO=/usr/share/terminfo
