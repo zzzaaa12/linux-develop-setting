@@ -3,12 +3,6 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-if [ "$(hostname|grep '\[')" != "" ]; then
-    export PS1=" \u@\h \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
-else
-    export PS1=" \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
-fi
-
 LANG=C
 
 # alias for commands with color
@@ -112,8 +106,14 @@ alias tmux='TERM=xterm-256color tmux -2'
 # show tmux status after login
 tmux ls 2>/dev/null
 
-export PATH=$HOME/local/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+# ====== others ======
+if [ "$(hostname|grep '\[')" != "" ]; then
+    export PS1=" \u@\h \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
+    export LD_LIBRARY_PATH=""
+else
+    export PS1=" \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
+    export PATH=$HOME/local/bin:$PATH
+fi
 
 source ~/.bash_openwrt.sh
 # Disable for realtek make menuconfig
