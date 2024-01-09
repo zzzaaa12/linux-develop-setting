@@ -86,6 +86,35 @@ function gxi() {
         fi
 }
 
+function backupcode() {
+    local backup_folder="$HOME/backup-code"
+    local backup_target="${backup_folder}/$(date +%Y%m%d-%H%M)"
+    local count=0
+
+    mkdir -p ${backup_target}
+
+    for item in "$@"; do
+        if [ -f "${item}" ] || [ -d "${item}" ]; then
+            cp -r "${item}" ${backup_target}/
+            ((count++))
+        else
+            echo "The item does not exist or is not a regular file/directory: ${item}"
+            continue
+        fi
+    done
+
+    echo ""
+    echo "Backup file to ${backup_target}"
+    echo "Items backed up this run: $count"
+
+    local total_files=$(find ${backup_folder} -type f | wc -l)
+    local total_size=$(du -sh ${backup_folder} | cut -f1)
+
+    echo "Total files in backup: $total_files"
+    echo "Total size of backup: $total_size"
+    echo ""
+}
+
 # ====== git ======
 alias gitaddmodified='git st . | grep modified | sed "s/.*modified:   //g" | xargs git add ; git st'
 alias gs='git st'
