@@ -1,3 +1,5 @@
+export PATH=~/.npm-global/bin:$PATH
+
 # PS1 setting with color 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -6,8 +8,10 @@ parse_git_branch() {
 LANG=C
 
 # alias for commands with color
+alias firefox='/snap/firefox/current/usr/lib/firefox/firefox &'
 alias diff='colordiff'
 alias findx='find . -name'
+alias fd='fdfind'
 alias ll='ls -al --color=always'
 alias llh='ll -h'
 alias cr='clear'
@@ -43,6 +47,7 @@ alias v='vim'
 # ===== find =====
 alias findx='find . -name'
 alias fx='findx'
+alias fxi='find . -iname'
 function fls() {
 	fx "$1" | xargs ls -al
 }
@@ -59,7 +64,7 @@ done
 
 
 # ===== grep =====
-alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=CVS --exclude-dir=.git --exclude=tags'
+alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=CVS --exclude-dir=.git --exclude=tags --exclude=*.swp --exclude=*.swo --exclude=*.o.cmd'
 alias grephis='history | grep'
 alias gx='grepx'
 function grepx() {
@@ -86,9 +91,54 @@ function gxi() {
         fi
 }
 
+# ===== rip-grep =====
+alias rx='rgx'
+alias rxi='rgxi'
+# ---------------------------------------------------------
+# rgx : case-sensitive search
+# usage:
+#   rgx PATTERN
+#   rgx PATTERN PATH
+#   rgx PATTERN PATH [rg options...]
+# ---------------------------------------------------------
+function rgx() {
+    if [ "$1" = "" ]; then
+        echo "Nothing to grep!!!"
+        return 1
+    elif [ "$2" = "" ]; then
+        rg --no-ignore --text "$1"
+    elif [ "$3" = "" ]; then
+        rg --no-ignore --text "$1" "$2"
+    else
+        rg --no-ignore --text "$@"
+    fi
+}
+
+# ---------------------------------------------------------
+# rgxi : case-insensitive search
+# usage:
+#   rgxi PATTERN
+#   rgxi PATTERN PATH
+#   rgxi PATTERN PATH [rg options...]
+# ---------------------------------------------------------
+function rgxi() {
+    if [ "$1" = "" ]; then
+        echo "Nothing to grep!!!"
+        return 1
+    elif [ "$2" = "" ]; then
+        rg --no-ignore --text -i "$1"
+    elif [ "$3" = "" ]; then
+        rg --no-ignore --text -i "$1" "$2"
+    else
+        rg --no-ignore --text -i "$@"
+    fi
+}
+
+
+alias cpcode='backupcode'
 function backupcode() {
     local backup_folder="$HOME/backup-code"
-    local backup_target="${backup_folder}/$(date +%Y%m%d-%H%M)"
+    local backup_target="${backup_folder}/$(date +%Y%m%d-%H%M%S)"
     local count=0
 
     mkdir -p ${backup_target}
@@ -115,6 +165,7 @@ function backupcode() {
     echo ""
 }
 
+
 # ====== git ======
 alias gitaddmodified='git st . | grep modified | sed "s/.*modified:   //g" | xargs git add ; git st'
 alias gs='git st'
@@ -131,19 +182,21 @@ alias gpush='git push'
 
 
 # ====== tumx ======
-alias tmux='TERM=xterm-256color tmux -2'
+alias tmux='TERM=xterm-256color tmux -2 -u'
 # show tmux status after login
 tmux ls 2>/dev/null
 
-# ====== others ======
+export PATH=$HOME/local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+
 if [ "$(hostname|grep '\[')" != "" ]; then
-    export PS1=" \u@\h \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
-    export LD_LIBRARY_PATH=""
+export PS1=" \u@\h \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
+export LD_LIBRARY_PATH=""
 else
-    export PS1=" \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
-    export PATH=$HOME/local/bin:$PATH
+export PS1=" \[\033[01;32m\]\W\[\033[31m\]\$(parse_git_branch)\[\033[00m\] $ "
 fi
 
+. "$HOME/.cargo/env"
 source ~/.bash_openwrt.sh
 # Disable for realtek make menuconfig
-# export TERM=xterm1;export TERMINFO=/usr/share/terminfo
+export TERM=xterm1;export TERMINFO=/usr/share/terminfo
